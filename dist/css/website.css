@@ -128,7 +128,7 @@ header .site svg {
   background-image: url("/dist/img/title-background.png");
   background-repeat: no-repeat;
   background-size: 60%;
-  background-position: center;
+  background-position: left center;
 }
 .hero .title-container h1 {
   font-size: var(--s);
