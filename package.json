@@ -1,0 +1,22 @@
+{
+  "name": "landing-mes-durlero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/isolant1/landing-mes-del-durlero.git"
+  },
+  "author": "Juan Martín García",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/isolant1/landing-mes-del-durlero/issues"
+  },
+  "homepage": "https://gitlab.com/isolant1/landing-mes-del-durlero#readme",
+  "dependencies": {
+    "sass": "^1.26.8"
+  }
+}
