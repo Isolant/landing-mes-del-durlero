@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass assets/sass/website.scss dist/css/website.css",
+    "watch:serve": "browser-sync start --server --files '*.html, css/*.css'",
+    "watch:sass": "npm run sass -- --watch",
+    "start": "npm-run-all --parallel watch:*"
   },
   "repository": {
     "type": "git",
@@ -16,7 +19,10 @@
     "url": "https://gitlab.com/isolant1/landing-mes-del-durlero/issues"
   },
   "homepage": "https://gitlab.com/isolant1/landing-mes-del-durlero#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "npm-run-all": "^4.1.5",
     "sass": "^1.26.8"
   }
 }
