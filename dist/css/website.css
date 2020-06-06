@@ -399,6 +399,134 @@ footer .wrapper ul li:first-child {
   margin-left: 0;
 }
 
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(29, 29, 29, 0.8);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay .modal {
+  background-color: var(--white);
+  padding: var(--l);
+  padding-top: 0;
+  border-radius: var(--xxxs);
+  text-align: center;
+}
+.overlay .modal .modal-heading {
+  position: relative;
+  top: -30px;
+}
+.overlay .modal .modal-heading .title-container {
+  text-align: center;
+  margin-top: var(--xs);
+}
+.overlay .modal .modal-heading .title-container h2 {
+  font-size: var(--s);
+  color: var(--black);
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  line-height: 1;
+}
+.overlay .modal .modal-heading .title-container h2 span {
+  display: block;
+}
+.overlay .modal .modal-heading .title-container h2 strong {
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+.overlay .modal .modal-heading .title-container h2 strong hr {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  border: none;
+  height: 0.5em;
+  margin: 0;
+  background: var(--yellow-gradient);
+  bottom: 0;
+  z-index: -1;
+}
+.overlay .modal .modal-heading p {
+  margin-top: var(--m);
+  font-size: var(--xxs);
+  color: var(--black);
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  opacity: 0.7;
+}
+.overlay .modal .modal-ctas {
+  display: flex;
+  justify-content: space-around;
+}
+.overlay .modal .modal-ctas a {
+  margin: 0 var(--xxs);
+  padding: var(--xs) !important;
+  text-decoration: none;
+}
+.overlay .modal .modal-ctas a:first-child {
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--black);
+  box-shadow: 0px 2px 0px rgba(29, 29, 29, 0.13);
+  border: none;
+  border-right: 0.5rem solid var(--yellow);
+  padding: var(--xxs) var(--m);
+  position: relative;
+  transform: skewX(-25deg);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.overlay .modal .modal-ctas a:first-child h4 {
+  font-size: var(--xxs);
+  color: var(--white);
+  text-transform: uppercase;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 700;
+  transform: skewX(25deg);
+}
+.overlay .modal .modal-ctas a:first-child:hover {
+  background-color: var(--yellow);
+  border-right-color: var(--black);
+}
+.overlay .modal .modal-ctas a:first-child:hover h4 {
+  color: var(--black);
+}
+.overlay .modal .modal-ctas a:last-child {
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--yellow);
+  box-shadow: 0px 2px 0px rgba(29, 29, 29, 0.13);
+  border: none;
+  border-right: 0.5rem solid var(--black);
+  padding: var(--xxs) var(--m);
+  position: relative;
+  transform: skewX(-25deg);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.overlay .modal .modal-ctas a:last-child h4 {
+  font-size: var(--xxs);
+  color: var(--black);
+  text-transform: uppercase;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 700;
+  transform: skewX(25deg);
+}
+.overlay .modal .modal-ctas a:last-child:hover {
+  background-color: var(--black);
+  border-right-color: var(--yellow);
+}
+.overlay .modal .modal-ctas a:last-child:hover h4 {
+  color: var(--yellow);
+}
+
 @media screen and (max-width: 1240px) {
   .hero .title-container {
     background-size: 75%;
@@ -428,6 +556,10 @@ footer .wrapper ul li:first-child {
   .hero form .input-group button {
     padding: var(--xxs) var(--s);
   }
+
+  .overlay .modal {
+    padding: var(--s);
+  }
 }
 @media screen and (max-width: 590px) {
   .wrapper {
@@ -451,6 +583,25 @@ footer .wrapper ul li:first-child {
   }
   .hero form .input-group button h4 {
     font-size: var(--xxxs);
+  }
+
+  .overlay .modal {
+    padding: var(--xxxs);
+  }
+  .overlay .modal .modal-heading {
+    top: -45px;
+  }
+  .overlay .modal .modal-heading .title-container h2 {
+    font-size: var(--xs);
+  }
+  .overlay .modal .modal-ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+  .overlay .modal .modal-ctas a {
+    margin: var(--xxxs) 0;
+    box-sizing: border-box;
+    width: 90%;
   }
 }
 @media screen and (max-width: 490px) {

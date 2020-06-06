@@ -279,6 +279,87 @@ footer {
   }
 }
 
+// success modal
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(29,29,29,.8);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal {
+    background-color: var(--white);
+    padding: var(--l);
+    padding-top: 0;
+    border-radius: var(--xxxs);
+    text-align: center;
+
+    .modal-heading {
+      position: relative;
+      top: -30px;
+
+      .title-container {
+        text-align: center;
+        margin-top: var(--xs);
+
+        h2 {
+          @include config.text(var(--s), var(--black), 300);
+
+          span {
+            display: block;
+          }
+
+          strong {
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+
+            hr {
+              position: absolute;
+              width: 100%;
+              left: 0;
+              border: none;
+              height: .5em;
+              margin: 0;
+              background: var(--yellow-gradient);
+              bottom: 0;
+              z-index: -1;
+            }
+          }
+        }
+      }
+
+      p {
+        margin-top: var(--m);
+        @include config.text(var(--xxs), var(--black), 400);
+        opacity: 0.7;
+      }
+    }
+
+    .modal-ctas {
+      display: flex;
+      justify-content: space-around;
+
+      a {
+        margin: 0 var(--xxs);
+        padding: var(--xs) !important;
+        text-decoration: none;
+      }
+
+      a:first-child {
+        @include components.button(var(--black), var(--white), var(--yellow));
+      }
+
+      a:last-child {
+        @include components.button(var(--yellow), var(--black), var(--black));
+      }
+    }
+  }
+}
+
 // RESPONSIVE
 
 // 1240
@@ -330,6 +411,12 @@ footer {
       }
     }
   }
+
+  .overlay {
+    .modal {
+      padding: var(--s);
+    }
+  }
 }
 
 // 590
@@ -362,6 +449,33 @@ footer {
           h4 {
             font-size: var(--xxxs);
           }
+        }
+      }
+    }
+  }
+
+  .overlay {
+    .modal {
+      padding: var(--xxxs);
+
+      .modal-heading {
+        top: -45px;
+
+        .title-container {
+          h2 {
+            font-size: var(--xs);
+          }
+        }
+      }
+
+      .modal-ctas {
+        flex-direction: column;
+        align-items: center;
+
+        a {
+          margin: var(--xxxs) 0;
+          box-sizing: border-box;
+          width: 90%;
         }
       }
     }
