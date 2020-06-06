@@ -1,0 +1,30 @@
+@use '../config';
+
+@mixin button($background, $text, $hover) {
+  -moz-appearance: none;
+  appearance: none;
+  background-color: $background;
+  box-shadow: 0px 2px 0px rgba(29, 29, 29, 0.13);
+  border: none;
+  border-right: .5rem solid $hover;
+  padding: var(--xxs) var(--m);
+  position: relative;
+  // left: -2rem;
+  transform: skewX(-25deg);
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  
+  h4 {
+    @include config.uppercase-text(var(--xxs), $text, 700);
+    transform: skewX(25deg);
+  }
+
+  &:hover {
+    background-color: $hover;
+    border-right-color: $background;
+
+    h4 {
+      color: $background;
+    }
+  }
+}

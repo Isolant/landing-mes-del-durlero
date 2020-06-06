@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass assets/sass/website.scss dist/css/website.css",
-    "watch:serve": "browser-sync start --server --files '*.html, css/*.css'",
+    "watch:serve": "browser-sync start --server --files '*.html, *.scss, css/*.css'",
     "watch:sass": "npm run sass -- --watch",
     "start": "npm-run-all --parallel watch:*"
   },

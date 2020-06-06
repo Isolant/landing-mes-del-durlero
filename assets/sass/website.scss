@@ -1,0 +1,275 @@
+@use 'utils/_reset';
+@use 'config';
+@use 'components';
+
+// wrapper
+.wrapper {
+  padding-left: var(--xl);
+  padding-right: var(--xl);
+  max-width: 1280px;
+  margin: auto;
+}
+
+// header
+header {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  padding-top: var(--xs);
+  padding-bottom: var(--xs);
+
+  & > * {
+    flex: 1;
+  }
+
+  a {
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+
+  .site {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @include config.text(var(--xxs), var(--grey), 500);
+    text-decoration: none;
+
+    svg {
+      margin-left: var(--xxxs);
+    }
+  }
+}
+
+// hero
+.hero {
+  background-image: url('/dist/img/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: var(--l);
+  padding-bottom: var(--l);
+  
+  .title-container {
+    padding-top: var(--m);
+    padding-bottom: var(--m);
+    background-image: url('/dist/img/title-background.png');
+    background-repeat: no-repeat;
+    background-size: 60%;
+
+    h1 {
+      @include config.text(var(--s), var(--black), 300);
+
+      strong {
+        display: block;
+        font-weight: 700;
+      }
+    }
+  }
+
+  form {
+    margin-top: var(--m);
+
+    label {
+      @include config.text(var(--xxs), var(--black), 400);
+      opacity: 0.7;
+      margin-bottom: var(--xxs);
+      display: block;
+    }
+    
+    .input-group {
+      display: flex;
+      align-items: center;
+
+      span {
+        @include config.text(var(--xxs), var(--black), 700);
+      }
+      
+      input[type="number"] {
+        @include config.text(var(--xxs), var(--black), 400);
+        margin-left: .5rem;
+        border-radius: .5rem;
+        box-shadow: 0px 2px 0px rgba(29, 29, 29, 0.13);
+        border: none;
+        padding: var(--xxs);
+        min-width: 270px;
+        outline: none;
+      }
+
+      button {
+        @include components.button(var(--black), var(--white), var(--yellow));
+        left: -2rem;
+      }
+    }
+  }
+}
+
+// products
+.products {
+  padding-top: var(--xl);
+  padding-bottom: var(--xl);
+
+  .title-container {
+    text-align: center;
+
+    h2 {
+      @include config.text(var(--s), var(--black), 300);
+
+      span {
+        display: block;
+      }
+
+      strong {
+        font-weight: 700;
+        position: relative;
+
+        hr {
+          position: absolute;
+          width: 100%;
+          left: 0;
+          border: none;
+          height: .5em;
+          margin: 0;
+          background: var(--yellow-gradient);
+          bottom: 0;
+          z-index: -1;
+        }
+      }
+    }
+  }
+
+  ul {
+    margin-top: var(--l);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: var(--xxs);
+
+    li {
+      border-radius: .25rem;
+      border: 1px solid #ECECEC;
+      padding: var(--xs);
+      display: flex;
+      align-items: center;
+
+      .text-container {
+        flex: 1;
+
+        h4 {
+          @include config.text(1.25rem, var(--black), 500);
+          margin-bottom: .5rem;
+        }
+        
+        p {
+          @include config.text(var(--xxxs), var(--black), 400);
+          max-width: 275px;
+          line-height: 160%;
+          opacity: 0.7;
+        }
+
+        a {
+          display: inline-block;
+          margin-top: var(--m);
+          @include config.uppercase-text(var(--xxxs), var(--black), 700);
+          text-decoration: none;
+          position: relative;
+
+          hr {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            border: none;
+            height: .5em;
+            margin: 0;
+            background: var(--yellow-gradient);
+            bottom: 0;
+            z-index: -1;
+            transition: all .2s ease-in-out;
+          }
+
+          &:hover {
+            hr {
+              bottom: -3px;
+            }
+          }
+        }
+      }
+
+      .image-container {
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// isolant plus CTA
+.isolant-plus {
+  background-image: url('/dist/img/isolant-plus-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: var(--xl);
+  padding-bottom: var(--xl);
+  text-align: center;
+
+  h3 {
+    @include config.text(var(--xs), var(--black), 500);
+    max-width: 620px;
+    margin: auto;
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
+  button {
+    margin-top: var(--s);
+    @include components.button(var(--black), var(--white), var(--yellow));
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+// footer
+footer {
+  background-color: var(--black);
+  padding-top: var(--xxs);
+  padding-bottom: var(--xxs);
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+
+    p {
+      @include config.text(var(--xxxs), var(--white), 500);
+      flex: 1;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+
+      li {
+        margin-left: var(--s);
+
+        a {
+          opacity: .7;
+          transition: all .3s ease-in-out;
+
+          svg {
+            path {
+              fill: var(--white);
+            }
+          }
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin uppercase-text($font-size, $color, $weight) {
+  font-size: $font-size;
+  color: $color;
+  text-transform: uppercase;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+@mixin text($font-size, $color, $weight) {
+  font-size: $font-size;
+  color: $color;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: $weight;
+  line-height: 1;
+}
