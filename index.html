@@ -76,11 +76,11 @@
           <strong>¡En Agosto celebramos tu mes!</strong>
         </h1>
       </div>
-      <form action="" class="wrapper">
-        <label for="telephone">Dejanos tu WhatsApp:</label>
+      <form action="" class="wrapper" name="google-sheet">
+        <label for="telefono">Dejanos tu WhatsApp:</label>
         <div class="input-group">
           <span>+54 9</span>
-          <input type="number" placeholder="Escribí tu Número acá" />
+          <input type="number" placeholder="Escribí tu Número acá" name="telefono" />
           <button type="submit">
             <h4>Y ped&iacute; tu regalo</h4>
           </button>
@@ -231,6 +231,17 @@
       </div>
     </footer>
   </main>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwtoAfjBrEX_GASXxJCAUb2zgP0WxLlvPkyyF2yMGmpw4FmDTWK/exec';
+    const form = document.forms['google-sheet'];
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => window.location.href="/exito.html")
+        .catch(error => console.error('Error!', error.message));
+    });
+  </script>
 </body>
 
 </html>
