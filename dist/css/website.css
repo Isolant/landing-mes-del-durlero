@@ -165,7 +165,7 @@ header .site svg {
   font-weight: 700;
   line-height: 1;
 }
-.hero form .input-group input[type=number] {
+.hero form .input-group input[type=tel] {
   font-size: var(--xxs);
   color: var(--black);
   font-family: "Roboto", Arial, Helvetica, sans-serif;
@@ -550,7 +550,7 @@ footer .wrapper ul li:first-child {
   .hero .title-container h1 {
     font-size: var(--xs);
   }
-  .hero form .input-group input[type=number] {
+  .hero form .input-group input[type=tel] {
     min-width: 210px;
   }
   .hero form .input-group button {
@@ -574,7 +574,7 @@ footer .wrapper ul li:first-child {
   .hero form .input-group span {
     font-size: var(--xxxs);
   }
-  .hero form .input-group input[type=number] {
+  .hero form .input-group input[type=tel] {
     font-size: var(--xxxs);
     min-width: 160px;
   }
@@ -642,7 +642,7 @@ footer .wrapper ul li:first-child {
   .hero form .input-group {
     flex-wrap: wrap;
   }
-  .hero form .input-group input[type=number] {
+  .hero form .input-group input[type=tel] {
     flex: 1;
   }
   .hero form .input-group button {

@@ -87,7 +87,7 @@ header {
         @include config.text(var(--xxs), var(--black), 700);
       }
       
-      input[type="number"] {
+      input[type="tel"] {
         @include config.text(var(--xxs), var(--black), 400);
         margin-left: .5rem;
         border-radius: .5rem;
@@ -401,7 +401,7 @@ footer {
 
     form {
       .input-group {
-        input[type="number"] {
+        input[type="tel"] {
           min-width: 210px;
         }
 
@@ -438,7 +438,7 @@ footer {
           font-size: var(--xxxs);
         }
 
-        input[type="number"] {
+        input[type="tel"] {
           font-size: var(--xxxs);
           min-width: 160px;
         }
@@ -539,7 +539,7 @@ footer {
       .input-group {
         flex-wrap: wrap;
 
-        input[type="number"] {
+        input[type="tel"] {
           flex: 1;
         }
 
