@@ -56,9 +56,9 @@
         <a href="https://www.isolant.com.ar" target="_blank" rel="noopener noreferrer">
           <h4>Ir a la web de Isolant</h4>
         </a>
-        {# <a href="https://www.isolant.com.ar" target="_blank" rel="noopener noreferrer" class="cta-isolant-plus">
+        <!-- <a href="https://www.isolant.com.ar" target="_blank" rel="noopener noreferrer" class="cta-isolant-plus">
           <h4>Ir a Isolant Plus</h4>
-        </a> #}
+        </a> -->
       </div>
     </div>
   </section>
@@ -121,11 +121,22 @@
           <strong>¡En Agosto celebramos tu mes!</strong>
         </h1>
       </div>
-      <form action="" class="wrapper">
-        <label for="telephone">Dejanos tu WhatsApp:</label>
+      <form action="" class="wrapper" name="google-sheet">
         <div class="input-group">
+          <label for="profesion">Profesi&oacute;n:</label>
+          <select name="profesion">
+            <option value="Durlero">Durlero</option>
+            <option value="Constructor">Constructor</option>
+            <option value="Arquitecto">Arquitecto</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="telefono">Dejanos tu WhatsApp:</label>
           <span>+54 9</span>
-          <input type="tel" placeholder="Escribí tu Número acá" />
+          <input type="tel" placeholder="Escribí tu Número acá" name="telefono" required pattern="[0-9]{8}" title="8 dígitos, sin el 15" />
+        </div>
+        <div class="input-group">
           <button type="submit">
             <h4>Y ped&iacute; tu regalo</h4>
           </button>

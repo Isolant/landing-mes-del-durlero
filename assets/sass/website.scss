@@ -48,12 +48,12 @@ header {
   background-image: url('/dist/img/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: var(--l);
-  padding-bottom: var(--l);
+  padding-top: var(--m);
+  padding-bottom: var(--m);
   
   .title-container {
-    padding-top: var(--m);
-    padding-bottom: var(--m);
+    padding-top: var(--s);
+    padding-bottom: var(--s);
     background-image: url('/dist/img/title-background.png');
     background-repeat: no-repeat;
     background-size: 60%;
@@ -71,36 +71,55 @@ header {
 
   form {
     margin-top: var(--m);
-
-    label {
-      @include config.text(var(--xxs), var(--black), 400);
-      opacity: 0.7;
-      margin-bottom: var(--xxs);
-      display: block;
-    }
     
     .input-group {
+      max-width: 350px;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
+      margin-bottom: var(--s);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      label {
+        @include config.text(var(--xxs), var(--black), 400);
+        opacity: 0.7;
+        margin-bottom: var(--xxs);
+        display: block;
+        flex: 100%;
+      }
 
       span {
         @include config.text(var(--xxs), var(--black), 700);
       }
       
-      input[type="tel"] {
+      input[type="tel"], select {
         @include config.text(var(--xxs), var(--black), 400);
         margin-left: .5rem;
         border-radius: .5rem;
         box-shadow: 0px 2px 0px rgba(29, 29, 29, 0.13);
         border: none;
         padding: var(--xxs);
-        min-width: 270px;
         outline: none;
+        flex: 1;
+      }
+
+      select {
+        margin-left: 0;
       }
 
       button {
         @include components.button(var(--black), var(--white), var(--yellow));
-        left: -2rem;
+        flex: 1;
+        transform: none;
+        border-right: none;
+        border-radius: .5rem;
+
+        h4 {
+          transform: none;
+        }
       }
     }
   }
