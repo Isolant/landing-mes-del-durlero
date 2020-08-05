@@ -119,19 +119,19 @@ header .site svg {
   background-image: url("/dist/img/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: var(--m);
-  padding-bottom: var(--m);
-}
-.hero .title-container {
   padding-top: var(--s);
   padding-bottom: var(--s);
+}
+.hero .title-container {
+  padding-top: var(--xs);
+  padding-bottom: var(--xs);
   background-image: url("/dist/img/title-background.png");
   background-repeat: no-repeat;
   background-size: 60%;
   background-position: left center;
 }
 .hero .title-container h1 {
-  font-size: var(--s);
+  font-size: var(--xs);
   color: var(--black);
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 300;
@@ -142,14 +142,14 @@ header .site svg {
   font-weight: 700;
 }
 .hero form {
-  margin-top: var(--m);
+  margin-top: var(--xs);
 }
 .hero form .input-group {
   max-width: 350px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: var(--s);
+  margin-bottom: var(--xs);
 }
 .hero form .input-group:last-child {
   margin-bottom: 0;
@@ -161,7 +161,7 @@ header .site svg {
   font-weight: 400;
   line-height: 1;
   opacity: 0.7;
-  margin-bottom: var(--xxs);
+  margin-bottom: var(--xxxs);
   display: block;
   flex: 100%;
 }

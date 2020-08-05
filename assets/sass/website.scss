@@ -48,19 +48,19 @@ header {
   background-image: url('/dist/img/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: var(--m);
-  padding-bottom: var(--m);
+  padding-top: var(--s);
+  padding-bottom: var(--s);
   
   .title-container {
-    padding-top: var(--s);
-    padding-bottom: var(--s);
+    padding-top: var(--xs);
+    padding-bottom: var(--xs);
     background-image: url('/dist/img/title-background.png');
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: left center;
 
     h1 {
-      @include config.text(var(--s), var(--black), 300);
+      @include config.text(var(--xs), var(--black), 300);
 
       strong {
         display: block;
@@ -70,14 +70,14 @@ header {
   }
 
   form {
-    margin-top: var(--m);
+    margin-top: var(--xs);
     
     .input-group {
       max-width: 350px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      margin-bottom: var(--s);
+      margin-bottom: var(--xs);
 
       &:last-child {
         margin-bottom: 0;
@@ -86,7 +86,7 @@ header {
       label {
         @include config.text(var(--xxs), var(--black), 400);
         opacity: 0.7;
-        margin-bottom: var(--xxs);
+        margin-bottom: var(--xxxs);
         display: block;
         flex: 100%;
       }
