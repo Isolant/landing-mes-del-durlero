@@ -20,14 +20,12 @@
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-TJS2ZPZ');</script>
-  <!-- End Google Tag Manager -->
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJS2ZPZ"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <!-- success overlay -->
   <section class="overlay">
     <div class="modal">
@@ -134,8 +132,12 @@
       </div>
       <form action="" class="wrapper" name="google-sheet">
         <div class="input-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" placeholder="Escribí tu Nombre acá" name="nombre" required />
+        </div>
+        <div class="input-group">
           <label for="profesion">Profesi&oacute;n:</label>
-          <select name="profesion">
+          <select name="profesion" required>
             <option value="Durlero">Durlero</option>
             <option value="Constructor">Constructor</option>
             <option value="Arquitecto">Arquitecto</option>
@@ -145,36 +147,48 @@
         <div class="input-group">
           <label for="provincia">Provincia:</label>
           <select name="provincia" required>
-            <option value="Ciudad Autonoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option>
-            <option value="Provincia de Buenos Aires">Provincia de Buenos Aires</option>
+            <option disabled selected>Por favor, complet&aacute; tu provincia</option>
+            <option value="Ciudad de Buenos Aires">Ciudad Aut&oacute;noma de Buenos Aires</option>
+            <option value="Buenos Aires">Provincia de Buenos Aires</option>
             <option value="Catamarca">Catamarca</option>
-            <option value="Cordoba">Córdoba</option>
+            <option value="Córdoba">C&oacute;rdoba</option>
             <option value="Corrientes">Corrientes</option>
             <option value="Chaco">Chaco</option>
             <option value="Chubut">Chubut</option>
-            <option value="Entre Rios">Entre Ríos</option>
+            <option value="Entre Ríos">Entre R&iacute;os</option>
             <option value="Formosa">Formosa</option>
             <option value="Jujuy">Jujuy</option>
             <option value="La Pampa">La Pampa</option>
             <option value="La Rioja">La Rioja</option>
             <option value="Mendoza">Mendoza</option>
             <option value="Misiones">Misiones</option>
-            <option value="Neuquen">Neuquén</option>
-            <option value="Rio Negro">Río Negro</option>
+            <option value="Neuquén">Neuqu&eacute;n</option>
+            <option value="Río Negro">R&iacute;o Negro</option>
             <option value="Salta">Salta</option>
             <option value="San Juan">San Juan</option>
             <option value="San Luis">San Luis</option>
             <option value="Santa Cruz">Santa Cruz</option>
-            <option value="Santa Fe">Santa Fe</option>
+            <option value="Santa Fe">Santa F&eacute;</option>
             <option value="Santiago del Estero">Santiago del Estero</option>
             <option value="Tierra del Fuego">Tierra del Fuego</option>
-            <option value="Tucuman">Tucumán</option>
+            <option value="Tucumán">Tucum&aacute;n</option>
           </select>
         </div>
         <div class="input-group">
-          <label for="telefono">Dejanos tu WhatsApp:</label>
+          <label for="localidad">Localidad:</label>
+          <select name="localidad" required>
+            <option disabled selected>Eleg&iacute; tu provincia para completar la localidad</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="areaCode">C&oacute;digo de &aacute;rea:</label>
           <span>+54 9</span>
-          <input type="tel" placeholder="Escribí tu Número acá" name="telefono" required pattern="[0-9]{8}" title="8 dígitos, sin el 15" />
+          <input type="number" placeholder="Escribí tu Código de Área acá" name="areaCode" required />
+        </div>
+        <div class="input-group">
+          <label for="phone">Dejanos tu WhatsApp:</label>
+          <input type="tel" placeholder="Escribí tu Número acá" name="phone" required pattern="[0-9]" title="Sólo números, sin el 15" />
+          <input type="hidden" name="telefono" />
         </div>
         <div class="input-group">
           <button type="submit">
@@ -269,7 +283,7 @@
         </li>
       </ul>
     </section>
-    <!-- isolant plus 
+    <!-- isolant plus
     <section class="isolant-plus">
       <div class="wrapper">
         <h3>
@@ -327,6 +341,60 @@
       </div>
     </footer>
   </main>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwtoAfjBrEX_GASXxJCAUb2zgP0WxLlvPkyyF2yMGmpw4FmDTWK/exec';
+    const form = document.forms['google-sheet'];
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => window.location.href="/exito.html")
+        .catch(error => console.error('Error!', error.message));
+    });
+  </script>
+  <script>
+    // Get the elements
+    const provinceSelect = document.querySelector('select[name="provincia"]');
+    const localeSelect = document.querySelector('select[name="localidad"]');
+    const areaCodeInput = document.querySelector('input[name="areaCode"]');
+    const phoneInput = document.querySelector('input[name="phone"]');
+    const fullPhoneInput = document.querySelector('input[name="telefono"]');
+
+    const loadLocale = async (e) => {
+      // Ping the API
+      const provinces = await fetch(`./data/provinces.json`);
+      const provincesJson = await provinces.json();
+
+      // Get the provinces that match the criteria
+      const matchingProvinces = provincesJson.filter(province => province.province.includes(e.target.value));
+      const locales = [];
+
+      // Push matching cities and area codes
+      matchingProvinces.map(province => locales.push({ city: province.city, areaCode: province.area_code }));
+
+      // Load the locale options
+      localeSelect.innerHTML = locales.map(locale => `<option value="${locale.city}" data-areaCode="${locale.areaCode}">${locale.city}</option>`).sort();
+
+      // And run the next fn
+      loadAreaCode();
+      formatPhone();
+    }
+
+    const loadAreaCode = (e) => {
+      // Populate the area code
+      areaCodeInput.value = localeSelect.options[localeSelect.selectedIndex].dataset.areacode;
+    }
+
+    const formatPhone = (e) => {
+      fullPhoneInput.value = `+549${areaCodeInput.value}${phoneInput.value}`;
+    }
+
+    // Events
+    provinceSelect.addEventListener('change', loadLocale);
+    localeSelect.addEventListener('change', loadAreaCode);
+    areaCodeInput.addEventListener('input', formatPhone);
+    phoneInput.addEventListener('input', formatPhone);
+  </script>
 </body>
 
 </html>

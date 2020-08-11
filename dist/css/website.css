@@ -136,6 +136,7 @@ header .site svg {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 300;
   line-height: 1;
+  margin-left: 0;
 }
 .hero .title-container h1 strong {
   display: block;
@@ -143,13 +144,19 @@ header .site svg {
 }
 .hero form {
   margin-top: var(--xs);
+  max-width: 520px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  flex-wrap: wrap;
+  margin-left: 0;
 }
 .hero form .input-group {
-  max-width: 350px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: var(--xs);
+  width: 100%;
+  box-sizing: border-box;
 }
 .hero form .input-group:last-child {
   margin-bottom: 0;
@@ -171,20 +178,26 @@ header .site svg {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 700;
   line-height: 1;
+  margin-right: 0.5rem;
 }
-.hero form .input-group input[type=tel], .hero form .input-group select {
+.hero form .input-group input, .hero form .input-group select {
   font-size: var(--xxs);
   color: var(--black);
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 400;
   line-height: 1;
-  margin-left: 0.5rem;
   border-radius: 0.5rem;
   box-shadow: 0px 2px 0px rgba(29, 29, 29, 0.13);
   border: none;
   padding: var(--xxs);
   outline: none;
   flex: 1;
+  width: 100%;
+  max-width: 250px;
+  box-sizing: border-box;
+}
+.hero form .input-group input[name=areaCode] {
+  max-width: 200px;
 }
 .hero form .input-group select {
   margin-left: 0;
@@ -566,9 +579,6 @@ footer .wrapper ul li:first-child {
   .hero .title-container h1 {
     font-size: var(--xs);
   }
-  .hero form .input-group input[type=tel] {
-    min-width: 210px;
-  }
   .hero form .input-group button {
     padding: var(--xxs) var(--s);
   }
@@ -587,12 +597,15 @@ footer .wrapper ul li:first-child {
     padding-top: var(--xs);
     padding-bottom: var(--xs);
   }
+  .hero form {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
   .hero form .input-group span {
     font-size: var(--xxxs);
   }
-  .hero form .input-group input[type=tel] {
-    font-size: var(--xxxs);
-    min-width: 160px;
+  .hero form .input-group input, .hero form .input-group select {
+    max-width: 100% !important;
   }
   .hero form .input-group button {
     padding: var(--xxs);
